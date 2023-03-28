@@ -41,7 +41,7 @@ jobs:
       - name: Cypress tests
         run: npm run cypress:run
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.dashboardRecordKey }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: Upload screenshot artifact
         uses: action/upload-artifact@v3
         with:
