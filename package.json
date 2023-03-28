@@ -1,0 +1,23 @@
+{
+  "name": "cypress-2023",
+  "version": "1.0.0",
+  "description": "Explore cypress 2023",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taohuh/cypress-2023.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taohuh/cypress-2023/issues"
+  },
+  "homepage": "https://github.com/taohuh/cypress-2023#readme",
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  }
+}
