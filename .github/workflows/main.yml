@@ -43,13 +43,13 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: Upload screenshot artifact
-        uses: action/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: screenshots
           path: cypress/screenshots
           if: failure()
       - name: Upload video artifact
-        uses: action/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: videos
           path: cypress/screenshots
