@@ -1,0 +1,58 @@
+name: Cypress Tests
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js v14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
+          with:
+            path: ~/.cache/Cypress
+            key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+            restore-keys: |
+              cypress-${{ runner.os }}-cypress-
+      - name: install dependencies and verify Cypress
+        env:
+          CI: 1
+        run: |
+          npm ci
+          npx cypress verify
+          npx cypress info
+          npx cypress version
+          npx cypress version --component package
+          npx cypress version --component binary
+          npx cypress version --component electron
+          npx cypress version --component node
+      - name: Cypress tests
+        run: npm run cypress:run
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.dashboardRecordKey }}
+      - name: Upload screenshot artifact
+        uses: action/upload-artifact@v3
+        with:
+          name: screenshots
+          path: cypress/screenshots
+          if: failure()
+      - name: Upload video artifact
+        uses: action/upload-artifact@v3
+        with:
+          name: videos
+          path: cypress/screenshots
+
+
+
