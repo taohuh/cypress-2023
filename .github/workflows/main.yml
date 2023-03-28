@@ -21,11 +21,11 @@ jobs:
             ${{ runner.os }}-node-
       - name: Cache Cypress binary
         uses: actions/cache@v3
-          with:
-            path: ~/.cache/Cypress
-            key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
-            restore-keys: |
-              cypress-${{ runner.os }}-cypress-
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-cypress-
       - name: install dependencies and verify Cypress
         env:
           CI: 1
