@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:record": "cypress run --record"
+    "cypress:record": "cypress run --record",
+    "cypress:parallel": "cypress run --record --parallel"
   },
   "repository": {
     "type": "git",
