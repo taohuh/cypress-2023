@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: videos
-          path: cypress/screenshots
+          path: cypress/videos
 
 
 
