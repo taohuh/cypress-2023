@@ -39,7 +39,7 @@ jobs:
           npx cypress version --component electron
           npx cypress version --component node
       - name: Cypress tests
-        run: npm run cypress:run
+        run: npm run cypress:record
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: Upload screenshot artifact
